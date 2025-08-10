@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Git Clone') {
             steps {
-                git branch: 'main', credentialsId: 'GitHubCred', url: 'https://github.com/Supriya-lr/student-operation-repo.git'
+                git branch: 'main', credentialsId: 'GitHubCred', url: 'https://github.com/Supriya-lr/New_Project.git'
             }
         }
 
