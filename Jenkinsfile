@@ -21,7 +21,7 @@ pipeline {
         stage('Install Tomcat'){
             steps{
                 withCredentials([file(credentialsId: 'AWS_EC2_PEM', variable: 'aws_pem_file')]){
-                    sh "ansible-playbook -i ansible-scripts/inventory.ini serverTomcat ansible-scripts/playbook.yaml -e ansible_ssh_private_key_file=${aws_pem_file} --ssh-common-args='-o StrictHostKeyChecking=no'"
+                    sh "ansible-playbook -i ansible-scripts/inventory.ini ansible-scripts/playbook.yaml -e ansible_ssh_private_key_file=${aws_pem_file} --ssh-common-args='-o StrictHostKeyChecking=no'"
                 }
             }
         }
