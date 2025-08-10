@@ -1,5 +1,13 @@
 ---
 
+- name: Wait for SSH connection to be available
+  ansible.builtin.wait_for_connection:
+    timeout: 600 # Wait up to 600 seconds (10 minutes)
+
+- name: Gather facts manually after connection is established
+  ansible.builtin.setup:
+    # Install Java
+
 - name: Download OpenJDK 17 RI tarball
   get_url:
     url: https://download.java.net/openjdk/jdk17.0.0.1/ri/openjdk-17.0.0.1+2_linux-x64_bin.tar.gz
