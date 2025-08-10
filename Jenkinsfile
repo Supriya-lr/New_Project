@@ -12,7 +12,7 @@ pipeline {
             steps{
                 withCredentials([file(credentialsId: 'AWS_EC2_PEM', variable: 'aws_pem_file')]) {
                 sh """ 
-                     ansible -i ansible-scripts/inventory.ini tomcatServer -m ping -e ansible_ssh_private_key_file=${aws_pem_file} --ssh-common-args='-o StrictHostKeyChecking=no' --flush-cache
+                     ansible -i ansible-scripts/inventory.ini tomcatServer -m ping -e ansible_ssh_private_key_file=${aws_pem_file} --ssh-common-args='-o StrictHostKeyChecking=no'
                 """
                 }
             }
